@@ -39,13 +39,80 @@ function generatePassword() {
 // Rejected user criteria input
   if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmChar) {
     alert("You need to pick something!");
-  } else if (confirmUppercase && confirmLowercase && confirmNumber && confirmChar);
-    lowerCase.concat(upperCase, numbers, special); 
 
-}
-
+  } 
+// If user selected 4 criteria options  
+  else if (confirmUppercase && confirmLowercase && confirmNumber && confirmChar) {
+    choices = lowerCase.concat(upperCase, numbers, special);
+  }
+    
   
+// If user selected 3 criteria options  
+  else if (confirmLowercase && confirmNumber && confirmChar) {
+    choices = lowerCase.concat(numbers, special);
+  } 
+    
+  else if (confirmUppercase && confirmNumber && confirmChar) {
+    choices = upperCase.concat(numbers, special);
+  }   
+
+  else if (confirmUppercase && confirmLowercase && confirmChar) {
+    choices = lowerCase.concat(upperCase, special);
+  }   
+
+  else if (confirmUppercase && confirmLowercase && confirmNumber) {
+    choices = lowerCase.concat(upperCase, numbers);
+  }
+
+  // If user selected 2 criteria options  
+  else if (confirmLowercase && confirmNumber) {
+    choices = lowerCase.concat(numbers);
+  } 
+    
+  else if (confirmUppercase && confirmNumber) {
+    choices = upperCase.concat(numbers);
+  }   
+
+  else if (confirmLowercase && confirmChar) {
+    choices = lowerCase.concat(special);
+  }   
+
+  else if (confirmLowercase && confirmNumber) {
+    choices = lowerCase.concat(numbers);
+  }
+
+  else if (confirmUppercase && confirmChar) {
+    choices = upperCase.concat(special);
+  }   
+
+  else if (confirmNumber && confirmChar) {
+    choices = special.concat(numbers);
+  }
+
+// If user selected 1 criteria options  
+  else if (confirmUppercase) {
+    choices = upperCase;
+  }
+  else if (confirmLowercase) {
+    choices = lowerCase;
+  }
+  else if (confirmNumber) {
+    choices = numbers;
+  }
+  else if (confirmChar) {
+    choices = special;
+  }
+
+
+
+
+
+
+
+
+
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+}
