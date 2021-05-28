@@ -18,19 +18,29 @@ function writePassword() {
 
 //Function to generate password
 function generatePassword() {
+
+// User input
   enter = parseInt(prompt("How many characters would you like your password to be? You must choose between 8 and 128"));
   if (!enter) {
     alert("Please enter character value!");
   } else if (enter < 8 || enter > 128) {
+
+// User rejected input
     enter = parseInt(prompt("You need to choose between 8 and 128 characters!"));
 
   } else {
-    confirmNumber = confirm("Will this contain numbers?");
-    confirmChar = confirm("Will this contain special characters?");
+// Continued user criteria input
     confirmUppercase = confirm("Will this contain uppercase letters?");
     confirmLowercase = confirm("Will this contain lowercase letters?");
+    confirmNumber = confirm("Will this contain numbers?");
+    confirmChar = confirm("Will this contain special characters?");
   };
+
+// Rejected user criteria input
+  if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmChar)
+    alert("You need to pick something!")
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
