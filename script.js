@@ -6,6 +6,9 @@ var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", 
 //Variable for criteria choices
 var choices;
 
+// password variable is an array placeholder for user generated amount of length
+var password = [];
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -100,18 +103,12 @@ function generatePassword() {
   else if (confirmChar) {
     choices = special;
   }
-
-  // password variable is an array placeholder for user generated amount of length
-  var password = [];
-
-  // Start random selection variables:
-  // Random selection for all variables: 
+  // Random selection for variables
   for (var i = 0; i < enter; i++) {
     var pickChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(pickChoices);
   }
-  // This joins the password array and converts it to a string
-  // Worked with a tutor to incorporate this option
+  // Combines password array then converts it to a string
   var ps = password.join("");
   UserInput(ps);
   return ps;
@@ -121,7 +118,6 @@ function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
